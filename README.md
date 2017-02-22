@@ -27,12 +27,11 @@ GDライブラリと、日本語書籍を扱う場合は Jcode ライブラリ�
 ### 今後のアップデート
 あまり考えていません。おそらくディープラーニングなんかで領域を切り出す方が効率がいいんじゃないでしょうか。
 PNG対応するには $ARGV[$i]の拡張子 $names[1]を見て、
-`
-if ($names[1] eq "jpg"{
-  $oldImage = newFromJpg GD::Image(\*OLD) || "Cannot make old image object\n";
-}elsif ($names[1] eq "PNG"){
-  $oldImage = newFromPng GD::Image(\*OLD) || "Cannot make old image object\n";
-}
 
-`
-のように、53行目あたりを書き換えてやれば良いんだと思いますよ。私はPNG使わないのでわかりませんが…。
+    if ($names[1] eq "jpg"{
+      $oldImage = newFromJpg GD::Image(\*OLD) || "Cannot make old image object\n";
+    }elsif ($names[1] eq "PNG"){
+      $oldImage = newFromPng GD::Image(\*OLD) || "Cannot make old image object\n"; 
+    }
+
+のように、53行目あたりを書き換えてやれば良いんだと思いますよ。私はPNG使わないのでわかりません…。
