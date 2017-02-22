@@ -151,7 +151,7 @@ for ($i = 0; $i < $number_of_files; $i++){
     }elsif ($ideal_rate >= 1.65 && $ideal_rate <= 1.90){
 
       $cutWidth = $ideal_yoko * 1.134;
-      print "$cutWidth , $tate をまず切り取ります\n";
+      
       $cutImage = &cutLeft($oldImage, $cutWidth, $tate);
       $cutImage2 = &cutRightByRate($cutImage, $ideal_yoko, $tate, 1.0, 0);
       $trueX = &findBorderRight($cutImage2);
@@ -357,10 +357,10 @@ sub findFoldLeft{
       }
     }
     $averageGray = $totalGray / $counter;
-    printf("averageGray: %4f\n", $averageGray);
+    
     if( $i!= 0){
       if( $averageGray+$threshold < $firstGray or $averageGray > $firstGray+$threshold){
-        printf("折り目?-- %d\n", $i);
+        
         last;
       }
     }else{
@@ -458,7 +458,7 @@ sub fileWriteOut{
   $writeImage = $_[0];
   $writeNumber = $_[1];
   $nFilename = $names[0]."__".$writeNumber.".".$names[1];
-  print $nFilename;
+  
   open NEW, ">$nFilename";
   binmode NEW;
   print NEW $writeImage->jpeg;
